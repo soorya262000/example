@@ -70,8 +70,8 @@ jobs:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pwd
-          cd cd GoLang/src/github.com/voonik
-          goveralls -coverprofile=./GoLang/src/github.com/voonik/example/coverreport -service=github
+          cd GoLang/src/github.com/voonik/example
+          goveralls -coverprofile=./coverreport -service=github
           
           
           
