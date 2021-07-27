@@ -1,5 +1,5 @@
 # Go example projects
-
+[![Coverage Status](https://coveralls.io/repos/github/soorya262000/example/badge.svg?branch=master)](https://coveralls.io/github/soorya262000/example?branch=master)
 
 [![Go Reference](https://pkg.go.dev/badge/golang.org/x/example.svg)](https://pkg.go.dev/golang.org/x/example)
 
