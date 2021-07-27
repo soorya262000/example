@@ -62,14 +62,13 @@ jobs:
           cd GoLang/src/github.com/voonik
           cd example
           go mod download
-          cd stringutil
-          go test -v -covermode count -coverprofile=coverreport ./...
+          go test -v -covermode count -coverprofile=coverreport ./stringutil/...
       - name: Install goveralls
         run: go install github.com/mattn/goveralls@latest
       - name: Send coverage
         env:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: goveralls -coverprofile=./GoLang/src/github.com/voonik/example/stringutil/coverreport -service=github
+        run: goveralls -coverprofile=./GoLang/src/github.com/voonik/example/coverreport -service=github
           
           
           
