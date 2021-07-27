@@ -72,6 +72,13 @@ jobs:
           pwd
           cd GoLang/src/github.com/voonik/example
           goveralls -coverprofile=./coverreport -service=github
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()    # run this step even if previous step failed
+        with:
+          name: JEST Tests            # Name of the check run which will be created
+          path: GoLang/src/github.com/voonik/example/report.json    # Path to test results
+          reporter: jest-junit        # Format of test results
           
           
           
