@@ -32,3 +32,12 @@ func TestReverse(t *testing.T) {
 		}
 	}
 }
+
+func TestDummyfunction(t *testing.T) {
+	in := "Hi"
+	want := "Hi"
+	got := Dummyfunction(in)
+	if got != want {
+		t.Errorf("Error ")
+	}
+}
