@@ -69,7 +69,7 @@ jobs:
       - name: Send coverage
         env:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: goveralls -coverprofile=./GoLang/src/github.com/voonik/example/coverreport -service=github
+        run: goveralls -coverprofile=./GoLang/src/github.com/voonik/example/stringutil/coverreport -service=github
           
           
           
