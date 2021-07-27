@@ -26,9 +26,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Read Report
+        id: report
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: GoLang/src/github.com/voonik/example/report.txt
       - name: Add commit comment
         run: |
-          jq -nc '{"body": "Hello there"}' | \
+          jq -nc '{"body": "${{ steps.report.outputs.content }}"}' | \
           curl -sL  -X POST -d @- \
             -H "Content-Type: application/json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
