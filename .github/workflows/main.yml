@@ -66,10 +66,12 @@ jobs:
           cd src/github.com/voonik
           cd example
           go mod download
+          go get -u github.com/jstemmer/go-junit-report
           cd $(go env GOPATH)
           pwd
           ls
           cd bin
+          pwd
           ls
           
           
