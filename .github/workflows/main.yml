@@ -66,21 +66,24 @@ jobs:
           cd src/github.com/voonik
           cd example
           go mod download
-          go test -v -covermode count -coverprofile=coverreport ./stringutil/... | $(go env GOPATH)/bin/go-junit-report > report.xml
-
-      - name: Install goveralls
-        run: go install github.com/mattn/goveralls@latest
-      - name: Send coverage
-        env:
-          COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+          cd $(go env GOPATH)
           pwd
-          cd GoLang/src/github.com/voonik/example
-          goveralls -coverprofile=./coverreport -service=github
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v2
-        with:
-          report_paths: '**/GoLang/src/github.com/voonik/example/*.xml'
+          ls
+          
+
+#       - name: Install goveralls
+#         run: go install github.com/mattn/goveralls@latest
+#       - name: Send coverage
+#         env:
+#           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         run: |
+#           pwd
+#           cd GoLang/src/github.com/voonik/example
+#           goveralls -coverprofile=./coverreport -service=github
+#       - name: Publish Test Report
+#         uses: mikepenz/action-junit-report@v2
+#         with:
+#           report_paths: '**/GoLang/src/github.com/voonik/example/*.xml'
           
           
           
