@@ -59,16 +59,14 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo go env GOPATH
+          go env GOPATH
           export GG=$(pwd)
           cd GoLang
           ls
           cd src/github.com/voonik
           cd example
           go mod download
-          cd ../../../../
-          pwd
-          ls
+          go test -v -covermode count -coverprofile=coverreport ./stringutil/... | $GOPATH/bin/go-junit-report > report.xml
 
       - name: Install goveralls
         run: go install github.com/mattn/goveralls@latest
