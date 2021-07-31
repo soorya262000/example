@@ -70,7 +70,7 @@ jobs:
           go mod download
           go get -u github.com/jstemmer/go-junit-report
           go get github.com/mikefarah/yq/v4
-          echo yq e '.dirs' coverignore.yaml
+          yq e '.dirs' coverignore.yaml
           go test -v -covermode count -coverprofile=coverreport ./stringutil/... | go-junit-report > report.xml
 
           
