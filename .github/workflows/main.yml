@@ -38,7 +38,7 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
-          format: 'string-delimited'
+          format: ''
       - run: |
          echo ${{ steps.files.outputs.added_modified }}
         
