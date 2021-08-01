@@ -42,5 +42,6 @@ func Dummy3(s string) string {
 	fmt.Println("Hello world")
 	fmt.Println("Hello world")
 	fmt.Println("Hello world")
+	fmt.Println("Hello world")
 	return "Dummy3"
 }
