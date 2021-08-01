@@ -73,13 +73,11 @@ jobs:
           go get -u github.com/jstemmer/go-junit-report
           go get github.com/mikefarah/yq/v4
           yq e '.dirs' coverignore.yaml
-          go test -v -covermode count -coverprofile=coverreport ./stringutil/... | go-junit-report > report.xml
-          echo ${{ steps.files.outputs.added_modified }}
-          echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] '|'
+          go test -v -covermode count -coverprofile=coverreport.text ./stringutil/... | go-junit-report > report.xml
+          cat coverreport.text
           export FILES_CHANGED="'$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")'"
           echo $FILES_CHANGED
-          {cat coverreport | grep -E $FILES_CHANGED} || {echo "Error god knows why"}
-
+          cat coverreport.text | grep -E $FILES_CHANGED
           
           
 
@@ -91,7 +89,7 @@ jobs:
         run: |
           pwd
           cd GoLang/src/github.com/voonik/example
-          goveralls -coverprofile=./coverreport -service=github
+          goveralls -coverprofile=./coverreport.text -service=github
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v2
         with:
