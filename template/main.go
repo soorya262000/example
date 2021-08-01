@@ -92,6 +92,7 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 
 // images specifies the site content: a collection of images.
 var images = map[string]*Image{
-	"go":     {"The Go Gopher", "https://golang.org/doc/gopher/frontpage.png"},
-	"google": {"The Google Logo", "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"},
+	"go":      {"The Go Gopher", "https://golang.org/doc/gopher/frontpage.png"},
+	"google":  {"The Google Logo", "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"},
+	"Youtube": {"Youtube Logo", "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"},
 }
