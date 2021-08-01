@@ -17,6 +17,8 @@ limitations under the License.
 // Package stringutil contains utility functions for working with strings.
 package stringutil
 
+import "fmt"
+
 // Reverse returns its argument string reversed rune-wise left to right.
 func Reverse(s string) string {
 	rr := []rune(s)
@@ -35,6 +37,6 @@ func Dummy2(s string) string {
 }
 
 func Dummy3(s string) string {
-
+	fmt.Println("Hello world")
 	return "Dummy3"
 }

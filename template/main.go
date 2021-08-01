@@ -23,6 +23,7 @@ limitations under the License.
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -80,6 +81,7 @@ type Image struct {
 
 // imageHandler is an HTTP handler that serves the image pages.
 func imageHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Hello world")
 	data, ok := images[strings.TrimPrefix(r.URL.Path, "/image/")]
 	if !ok {
 		http.NotFound(w, r)
