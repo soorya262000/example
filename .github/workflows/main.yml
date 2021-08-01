@@ -37,8 +37,6 @@ jobs:
           
       - id: files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format: ''
       - run: |
          echo ${{ steps.files.outputs.added_modified }}
         
@@ -74,7 +72,9 @@ jobs:
           go get -u github.com/jstemmer/go-junit-report
           go get github.com/mikefarah/yq/v4
           yq e '.dirs' coverignore.yaml
+          echo ${{ steps.files.outputs.added_modified }}
           go test -v -covermode count -coverprofile=coverreport ./stringutil/... | go-junit-report > report.xml
+          
 
           
           
