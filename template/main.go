@@ -84,6 +84,8 @@ func imageHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Hello world")
 	fmt.Println("Hello world")
 	fmt.Println("Hello world")
+	fmt.Println("Hello world")
+	fmt.Println("Hello world")
 	data, ok := images[strings.TrimPrefix(r.URL.Path, "/image/")]
 	if !ok {
 		http.NotFound(w, r)

@@ -75,6 +75,10 @@ jobs:
           yq e '.dirs' coverignore.yaml
           go test -v -covermode count -coverprofile=coverreport ./stringutil/... | go-junit-report > report.xml
           echo ${{ steps.files.outputs.added_modified }}
+          echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] '|'
+          export FILES_CHANGED="'|$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")|'"
+          echo $FILES_CHANGED
+          cat coverreport | grep -E $FILES_CHANGED
 
           
           
