@@ -77,7 +77,7 @@ jobs:
           cat coverreport.text
           export FILES_CHANGED="'$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")'"
           echo $FILES_CHANGED
-          cat coverreport.text | grep --no-messages -E $FILES_CHANGED > ff.txt
+          grep --no-messages -E $FILES_CHANGED coverreport.text > ff.txt
           cat ff.txt
 
           
