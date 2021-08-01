@@ -78,6 +78,7 @@ jobs:
           echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] '|'
           export FILES_CHANGED="'$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")'"
           echo $FILES_CHANGED
+          cat coverreport
           cat coverreport | grep -E $FILES_CHANGED
 
           
