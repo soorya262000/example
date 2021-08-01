@@ -68,7 +68,6 @@ jobs:
           ls
           cd src/github.com/voonik
           cd example
-          bash run_test.sh
           go mod download
           go get -u github.com/jstemmer/go-junit-report
           go get github.com/mikefarah/yq/v4
@@ -76,8 +75,8 @@ jobs:
           go test -v -covermode count -coverprofile=coverreport.text ./stringutil/... | go-junit-report > report.xml
           cat coverreport.text
           export FILES_CHANGED="'$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")'"
-          echo $FILES_CHANGED
-          grep -E 'stringutil/reverse.go' coverreport.text
+          bash run_test.sh ${{ steps.files.outputs.added_modified }}
+          
 
           
           
