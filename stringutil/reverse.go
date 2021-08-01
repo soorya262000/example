@@ -29,3 +29,7 @@ func Reverse(s string) string {
 func Dummyfunction(s string) string {
      return s
 }
+
+func Dummy2(s string) string {
+	return "Dummy2"
+}
