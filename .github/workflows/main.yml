@@ -71,9 +71,7 @@ jobs:
           go mod download
           go get -u github.com/jstemmer/go-junit-report
           go get github.com/mikefarah/yq/v4
-          yq e '.dirs' coverignore.yaml
           go test -v -covermode count -coverprofile=coverreport.text ./stringutil/... | go-junit-report > report.xml
-          cat coverreport.text
           export FILES_CHANGED="'$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")'"
           bash run_test.sh ${{ steps.files.outputs.added_modified }}
           
