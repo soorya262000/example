@@ -34,6 +34,7 @@ func Dummyfunction(s string) string {
 	fmt.Println("Hello world")
 	fmt.Println("Hello world")
 	fmt.Println("Hello world")
+	fmt.Println("Hello world")
 	return s
 }
 
