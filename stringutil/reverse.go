@@ -30,7 +30,6 @@ func Reverse(s string) string {
 
 func Dummyfunction(s string) string {
 	fmt.Println("Hello world")
-	fmt.Println("Hello world")
 
 	return s
 }
@@ -41,6 +40,6 @@ func Dummy2(s string) string {
 
 func Dummy3(s string) string {
 	fmt.Println("Hello world")
-
+	fmt.Println("Hello world")
 	return "Dummy3"
 }
