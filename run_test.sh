@@ -4,7 +4,7 @@ echo $1
 for added_modified_file in "$@"; do
     echo "Do something with this ${added_modified_file}."
 done
-export FILES_CHANGED="'$(echo $1 | tr [:blank:] "|")'"
+export FILES_CHANGED="'$(echo $@ | tr [:blank:] "|")'"
 echo $FILES_CHANGED
 grep $1 coverreport.text
 for added_modified_file in "$@"; do
