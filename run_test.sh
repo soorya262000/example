@@ -9,3 +9,4 @@ for added_modified_file in "$@"; do
     (grep $added_modified_file coverreport.text || true) >> gh.txt
 done
 cat gh.txt
+go tool cover -func gh.txt
