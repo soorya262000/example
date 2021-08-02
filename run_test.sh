@@ -12,3 +12,4 @@ done
 echo "File Content"
 cat gh.txt
 go tool cover -func gh.txt
+echo "Testing"
