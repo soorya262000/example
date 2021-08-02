@@ -72,8 +72,9 @@ jobs:
           go get -u github.com/jstemmer/go-junit-report
           go get github.com/mikefarah/yq/v4
           go test -v -covermode count -coverprofile=coverreport.text ./stringutil/... | go-junit-report > report.xml
-          export FILES_CHANGED="'$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")'"
-          bash run_test.sh ${{ steps.files.outputs.added_modified }}
+          #export FILES_CHANGED="'$(echo ${{ steps.files.outputs.added_modified }} | tr [:blank:] "|")'"
+          #bash run_test.sh ${{ steps.files.outputs.added_modified }}
+          #echo "sdfsdfsdf"
           
 
           
