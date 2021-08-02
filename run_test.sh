@@ -4,4 +4,4 @@ echo $1
 export FILES_CHANGED="'$(echo $1 | tr [:blank:] "|")'"
 echo $FILES_CHANGED
 cat coverreport.text
-grep $FILES_CHANGED coverreport.text
+grep $1 coverreport.text
