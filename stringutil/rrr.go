@@ -5,6 +5,7 @@ import "fmt"
 func Dum4(s string) string {
 	fmt.Println("afaadas")
 	fmt.Println("afaadas")
+	fmt.Println("afaadas")
 	return s
 }
 
