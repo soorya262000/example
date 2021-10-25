@@ -65,4 +65,4 @@ or manipulate Go programs.
 ## [template](template/)
 
 A trivial web server that demonstrates the use of the
-[`template` package](https://golang.org/pkg/text/template/)'s `block` feature.
+[`template` package](https://golang.org/pkg/text/template/)'s `block` feature.seweqqw

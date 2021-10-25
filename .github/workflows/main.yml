@@ -78,7 +78,6 @@ jobs:
 
           
           
-
       - name: Install goveralls
         run: go install github.com/mattn/goveralls@latest
       - name: Send coverage
