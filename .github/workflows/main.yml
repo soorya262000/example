@@ -45,13 +45,13 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
           path: ./GoLang/src/github.com/voonik/example/report.txt
-      - name: Add commit comment
-        run: |
-          jq -nc '{"body": "${{ steps.report.outputs.content }}"}' | \
-          curl -sL  -X POST -d @- \
-            -H "Content-Type: application/json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/comments"
+      # - name: Add commit comment
+      #   run: |
+      #     jq -nc '{"body": "${{ steps.report.outputs.content }}"}' | \
+      #     curl -sL  -X POST -d @- \
+      #       -H "Content-Type: application/json" \
+      #       -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+      #       "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/comments"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
