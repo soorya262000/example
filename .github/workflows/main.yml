@@ -75,7 +75,11 @@ jobs:
           echo ${{ steps.files.outputs.added_modified }}
           go test -v -covermode count -coverprofile=coverreport ./stringutil/... | go-junit-report > report.xml
           
-
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
           
 
