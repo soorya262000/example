@@ -77,8 +77,6 @@ jobs:
           
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
-        with:
-          path: GoLang/src/github.com/voonik/example
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
