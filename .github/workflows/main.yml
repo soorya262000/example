@@ -40,11 +40,11 @@ jobs:
       - run: |
          echo ${{ steps.files.outputs.added_modified }}
         
-      - name: Read Report
-        id: report
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./GoLang/src/github.com/voonik/example/report.txt
+      # - name: Read Report
+      #   id: report
+      #   uses: juliangruber/read-file-action@v1
+      #   with:
+      #     path: ./GoLang/src/github.com/voonik/example/report.txt
       # - name: Add commit comment
       #   run: |
       #     jq -nc '{"body": "${{ steps.report.outputs.content }}"}' | \
