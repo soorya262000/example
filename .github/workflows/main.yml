@@ -35,10 +35,10 @@ jobs:
         with:
           path: GoLang/src/github.com/voonik/example
           
-      - id: files
-        uses: jitterbit/get-changed-files@v1
-      - run: |
-         echo ${{ steps.files.outputs.added_modified }}
+      # - id: files
+      #   uses: jitterbit/get-changed-files@v1
+      # - run: |
+      #    echo ${{ steps.files.outputs.added_modified }}
         
       # - name: Read Report
       #   id: report
