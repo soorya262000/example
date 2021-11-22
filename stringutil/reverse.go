@@ -33,3 +33,7 @@ func Dummyfunction(s string) string {
 func Dummyfunction2(s string) string {
 	return s
 }
+
+func Dummyfunction3(s string) string {
+	return s
+}
