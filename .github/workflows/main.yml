@@ -75,8 +75,8 @@ jobs:
           echo ${{ steps.files.outputs.added_modified }}
           go test -v -covermode count -coverprofile=coverage.out ./stringutil/... -json > report.json
           
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
         with:
           projectBaseDir: GoLang/src/github.com/voonik/example
         env:
