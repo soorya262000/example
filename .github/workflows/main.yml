@@ -15,7 +15,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  tests:
+  sonarcloud:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -40,18 +40,18 @@ jobs:
       - run: |
          echo ${{ steps.files.outputs.added_modified }}
         
-      - name: Read Report
-        id: report
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./GoLang/src/github.com/voonik/example/report.txt
-      - name: Add commit comment
-        run: |
-          jq -nc '{"body": "${{ steps.report.outputs.content }}"}' | \
-          curl -sL  -X POST -d @- \
-            -H "Content-Type: application/json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/comments"
+      # - name: Read Report
+      #   id: report
+      #   uses: juliangruber/read-file-action@v1
+      #   with:
+      #     path: ./GoLang/src/github.com/voonik/example/report.txt
+      # - name: Add commit comment
+      #   run: |
+      #     jq -nc '{"body": "${{ steps.report.outputs.content }}"}' | \
+      #     curl -sL  -X POST -d @- \
+      #       -H "Content-Type: application/json" \
+      #       -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+      #       "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/comments"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -73,9 +73,16 @@ jobs:
           go get github.com/mikefarah/yq/v4
           yq e '.dirs' coverignore.yaml
           echo ${{ steps.files.outputs.added_modified }}
-          go test -v -covermode count -coverprofile=coverreport ./stringutil/... | go-junit-report > report.xml
+          go test -v -covermode count -coverprofile=coverage.out ./stringutil/... -json > report.json
           
-
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          projectBaseDir: GoLang/src/github.com/voonik/example
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           
           
 
@@ -87,11 +94,11 @@ jobs:
         run: |
           pwd
           cd GoLang/src/github.com/voonik/example
-          goveralls -coverprofile=./coverreport -service=github
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v2
-        with:
-          report_paths: '**/GoLang/src/github.com/voonik/example/*.xml'
+          goveralls -coverprofile=./coverage.out -service=github
+      # - name: Publish Test Report
+      #   uses: mikepenz/action-junit-report@v2
+      #   with:
+      #     report_paths: '**/GoLang/src/github.com/voonik/example/*.xml'
           
           
           

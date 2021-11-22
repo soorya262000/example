@@ -27,5 +27,9 @@ func Reverse(s string) string {
 }
 
 func Dummyfunction(s string) string {
-     return s
+	return s
+}
+
+func Dummyfunction2(s string) string {
+	return s
 }

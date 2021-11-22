@@ -31,7 +31,6 @@ Library [stringutil](stringutil/) covers:
 A web server that answers the question: "Is Go 1.x out yet?"
 
 
-
 Topics covered:
 
 * Command-line flags ([flag](//golang.org/pkg/flag/))
